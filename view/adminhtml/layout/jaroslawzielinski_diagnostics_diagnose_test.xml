@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="JaroslawZielinski\Diagnostics\Block\Adminhtml\Test" name="admin_test_block"
+                template="JaroslawZielinski_Diagnostics::diagnose/test.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

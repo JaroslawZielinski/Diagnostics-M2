@@ -1,0 +1,52 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Console Command DI -->
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="diagnostics_test" xsi:type="object">
+                    JaroslawZielinski\Diagnostics\Console\Command\Test
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Logger DI -->
+    <virtualType name="JaroslawZielinski\Diagnostics\Logger\Handler" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">var/log/jaroslawzielinski_diagnostics.log</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="JaroslawZielinski\Diagnostics\Logger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">JaroslawZielinski\Diagnostics\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="JaroslawZielinski\Diagnostics\Console\Command\Test">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\Diagnostics\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\Diagnostics\Model\Test\Test">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\Diagnostics\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\Diagnostics\Controller\Adminhtml\Diagnose\Test">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\Diagnostics\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\Diagnostics\Controller\Diagnose\Test">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\Diagnostics\Logger</argument>
+        </arguments>
+    </type>
+</config>
