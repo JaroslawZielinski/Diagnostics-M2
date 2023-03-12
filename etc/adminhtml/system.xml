@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="jaroslawzielinski" sortOrder="20" translate="label" class="jaroslawzielinski-main">
+            <label>Diagnostics</label>
+        </tab>
+        <section id="jaroslawzielinski_diagnostics" translate="label" sortOrder="20" showInDefault="1" showInStore="1"
+            showInWebsite="1">
+            <class>separator-top</class>
+            <label>Diagnostics</label>
+            <tab>jaroslawzielinski</tab>
+            <resource>JaroslawZielinski_Diagnostics::configuration</resource>
+            <group id="settings" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                showInStore="1" showInWebsite="1">
+                <label>Settings</label>
+                <field id="store_teller_enable" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Store teller enable</label>
+                    <comment><![CDATA[Enable store teller in footer. ]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <attribute type="expanded">0</attribute>
+            </group>
+        </section>
+    </system>
+</config>

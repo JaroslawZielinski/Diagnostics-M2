@@ -1,0 +1,10 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <jaroslawzielinski_diagnostics>
+            <settings>
+                <store_teller_enable>0</store_teller_enable>
+            </settings>
+        </jaroslawzielinski_diagnostics>
+    </default>
+</config>

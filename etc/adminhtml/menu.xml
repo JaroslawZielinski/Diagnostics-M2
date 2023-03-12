@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="JaroslawZielinski_Diagnostics::menu" resource="JaroslawZielinski_Diagnostics::menu" title="Diagnostics"
+            module="JaroslawZielinski_Diagnostics" sortOrder="10"/>
+
+        <add id="JaroslawZielinski_Diagnostics::backend"  resource="JaroslawZielinski_Diagnostics::backend"
+             title="Backend" translate="title" module="JaroslawZielinski_Diagnostics"
+             parent="JaroslawZielinski_Diagnostics::menu" sortOrder="10"/>
+
+        <add id="JaroslawZielinski_Diagnostics::diagnose" resource="JaroslawZielinski_Diagnostics::diagnose"
+             title="Make Diagnose" action="jaroslawzielinski_diagnostics/diagnose/test"
+             module="JaroslawZielinski_Diagnostics" sortOrder="10" parent="JaroslawZielinski_Diagnostics::backend"
+             dependsOnModule="JaroslawZielinski_Diagnostics"/>
+
+        <add id="JaroslawZielinski_Diagnostics::frontend"  resource="JaroslawZielinski_Diagnostics::frontend"
+             title="Frontend" translate="title" module="JaroslawZielinski_Diagnostics"
+             parent="JaroslawZielinski_Diagnostics::menu" sortOrder="20"/>
+
+        <add id="JaroslawZielinski_Diagnostics::diagnoseFrontend"
+             resource="JaroslawZielinski_Diagnostics::diagnoseFrontend" title="Make Diagnose"
+             action="diagnostics/diagnose/test" module="JaroslawZielinski_Diagnostics" sortOrder="10"
+             parent="JaroslawZielinski_Diagnostics::frontend" target="_blank"
+             dependsOnModule="JaroslawZielinski_Diagnostics"/>
+
+        <add id="JaroslawZielinski_Diagnostics::config"  resource="JaroslawZielinski_Diagnostics::config"
+             title="Configuration" translate="title" module="JaroslawZielinski_Diagnostics"
+             parent="JaroslawZielinski_Diagnostics::menu" sortOrder="30"/>
+
+        <add id="JaroslawZielinski_Diagnostics::configuration" resource="JaroslawZielinski_Diagnostics::configuration"
+            title="Configuration" action="adminhtml/system_config/edit/section/JaroslawZielinski_Diagnostics"
+            module="JaroslawZielinski_Diagnostics" sortOrder="20" parent="JaroslawZielinski_Diagnostics::config"
+            dependsOnModule="JaroslawZielinski_Diagnostics"/>
+    </menu>
+</config>

@@ -1,0 +1,12 @@
+<?php
+    /** @var \JaroslawZielinski\Diagnostics\Block\StoreTeller $block */
+?>
+<div>
+    <p><?= __('Store:'); ?></p>
+    <?= $block->getStoreId(); ?> <br />
+    <?= $block->getStoreCode(); ?> <br />
+    <?= $block->getWebsiteId(); ?> <br />
+    <?= $block->getStoreName(); ?> <br />
+    <?= $block->getStoreUrl(); ?> <br />
+    <?= $block->isStoreActive(); ?> <br />
+</div>

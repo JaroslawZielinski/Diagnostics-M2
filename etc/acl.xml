@@ -1,0 +1,26 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="JaroslawZielinski_Diagnostics::menu" title="JaroslawZielinski Diagnostics">
+                    <resource id="JaroslawZielinski_Diagnostics::frontend" title="JaroslawZielinski Diagnostics Frontend">
+                        <resource id="JaroslawZielinski_Diagnostics::diagnoseFrontend" title="Frontend Make Diagnose" />
+                    </resource>
+                    <resource id="JaroslawZielinski_Diagnostics::backend" title="JaroslawZielinski Diagnostics Backend">
+                        <resource id="JaroslawZielinski_Diagnostics::diagnose" title="Backend Make Diagnose"/>
+                    </resource>
+                    <resource id="JaroslawZielinski_Diagnostics::config" title="JaroslawZielinski Diagnostics Configuration" />
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="JaroslawZielinski_Diagnostics::configuration"
+                                title="JaroslawZielinski Diagnostics Configuration" translate="title" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

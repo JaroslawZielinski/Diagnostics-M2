@@ -1,0 +1,14 @@
+{
+    "name": "jaroslawzielinski/diagnostics-m2",
+    "description": "This module is for diagnostics in project",
+    "type": "magento2-module",
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "JaroslawZielinski\\Diagnostics\\": ""
+        }
+    }
+}
