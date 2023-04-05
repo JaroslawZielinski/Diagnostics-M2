@@ -46,8 +46,7 @@ bin/magento jaroslawzielinski:diagnostics:test --help
 ## How to install the Diagnostic Module via shell (1 Step out of 3)
 ```shell
 cd YourProject
-composer config repositories.diagnostics vcs https://github.com/JaroslawZielinski/Diagnostics-M2.git
-composer require --dev jaroslawzielinski/diagnostics-m2 dev-master
+composer require --dev jaroslawzielinski/diagnostics-m2
 ```
 
 ## How to override the core module by Your Custom Code (2 Step out of 3):
