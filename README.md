@@ -44,6 +44,7 @@ bin/magento jaroslawzielinski:diagnostics:test --help
 ```
 
 ## How to install the Diagnostic Module via shell (1 Step out of 3)
+in [packagist](https://packagist.org/packages/jaroslawzielinski/diagnostics-m2)
 ```shell
 cd YourProject
 composer require --dev jaroslawzielinski/diagnostics-m2
