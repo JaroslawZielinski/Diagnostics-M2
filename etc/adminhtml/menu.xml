@@ -29,7 +29,7 @@
              parent="JaroslawZielinski_Diagnostics::menu" sortOrder="30"/>
 
         <add id="JaroslawZielinski_Diagnostics::configuration" resource="JaroslawZielinski_Diagnostics::configuration"
-            title="Configuration" action="adminhtml/system_config/edit/section/JaroslawZielinski_Diagnostics"
+            title="Configuration" action="adminhtml/system_config/edit/section/jaroslawzielinski_diagnostics"
             module="JaroslawZielinski_Diagnostics" sortOrder="20" parent="JaroslawZielinski_Diagnostics::config"
             dependsOnModule="JaroslawZielinski_Diagnostics"/>
     </menu>
