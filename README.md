@@ -43,6 +43,11 @@ Also you have a CLI command that you may use/modify whatever way You like:
 bin/magento jaroslawzielinski:diagnostics:test --help
 ```
 
+or after overriding **getName** and **getDescription** methods you may use e.g. this way:
+```shell
+bin/magento vendor:diagnostics:customer --help
+```
+
 ## How to install the Diagnostic Module via shell (1 Step out of 3)
 in [packagist](https://packagist.org/packages/jaroslawzielinski/diagnostics-m2)
 ```shell
@@ -244,6 +249,22 @@ class Customer extends Test
                 'default' => null
             ]
         ];
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getName(): string
+    {
+        return 'vendor:diagnostics:customer';
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getDescription(): string
+    {
+        return 'Vendor Diagnostics customer';
     }
 }
 

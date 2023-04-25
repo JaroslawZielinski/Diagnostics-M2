@@ -47,4 +47,18 @@ class Test
             ]
         ];
     }
+
+    /**
+     */
+    public function getName(): string
+    {
+        return 'jaroslawzielinski:diagnostics:test';
+    }
+
+    /**
+     */
+    public function getDescription(): string
+    {
+        return 'JaroslawZielinski Diagnostics test';
+    }
 }

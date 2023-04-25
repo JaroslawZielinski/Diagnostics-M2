@@ -43,8 +43,8 @@ class Test extends Command
      */
     protected function configure()
     {
-        $this->setName('jaroslawzielinski:diagnostics:test');
-        $this->setDescription('JaroslawZielinski Diagnostics test');
+        $this->setName($this->testModel->getName());
+        $this->setDescription($this->testModel->getDescription());
         foreach ($this->testModel->getArgumentsDefinition() as $argument) {
             $this->addArgument($argument['name'], $argument['mode'], $argument['description'], $argument['default']);
         }
