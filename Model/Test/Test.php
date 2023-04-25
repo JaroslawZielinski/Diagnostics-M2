@@ -42,7 +42,7 @@ class Test
             [
                 'name' => 'test',
                 'mode' => InputArgument::REQUIRED,
-                'description' => __('Test argument'),
+                'description' => (string)__('Test argument'),
                 'default' => null
             ]
         ];

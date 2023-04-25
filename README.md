@@ -245,7 +245,7 @@ class Customer extends Test
             [
                 'name' => 'customer_id',
                 'mode' => InputArgument::REQUIRED,
-                'description' => __('Customer ID'),
+                'description' => (string)__('Customer ID'),
                 'default' => null
             ]
         ];
