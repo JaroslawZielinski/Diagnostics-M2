@@ -139,6 +139,7 @@ declare(strict_types=1);
 namespace Vendor\Diagnostics\Model;
 
 use Magento\Store\Model\ScopeInterface;
+
 class Config extends \JaroslawZielinski\Diagnostics\Model\Config
 {
     public const PATH_SETTINGS_MY_OPTION = 'jaroslawzielinski_diagnostics/settings/my_option';
@@ -370,7 +371,7 @@ class Test extends \JaroslawZielinski\Diagnostics\Block\Adminhtml\Test
 
 ```
 
-#### Vendor/Diagnostics/view/adminhtml/layout/JaroslawZielinski_diagnostics_diagnose_test.xml
+#### Vendor/Diagnostics/view/adminhtml/layout/jaroslawzielinski_diagnostics_diagnose_test.xml
 
 ```xml
 <?xml version="1.0"?>
@@ -496,7 +497,7 @@ class Test extends \JaroslawZielinski\Diagnostics\Block\Test
 
 ```
 
-#### Vendor/Diagnostics/view/frontend/layout/JaroslawZielinski_diagnostics_diagnose_test.xml
+#### Vendor/Diagnostics/view/frontend/layout/jaroslawzielinski_diagnostics_diagnose_test.xml
 
 ```xml
 <?xml version="1.0"?>
