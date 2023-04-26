@@ -50,12 +50,12 @@ class Test extends Command
         }
     }
 
-    private function displayMessages(OutputInterface $output): bool
+    private function displayMessages(OutputInterface $output): int
     {
         foreach ($this->messages as $message) {
             $output->writeln($message);
         }
-        return true;
+        return 1;
     }
 
     private function addMessage(string $message, ...$args): void
