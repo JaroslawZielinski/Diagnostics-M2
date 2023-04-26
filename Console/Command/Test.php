@@ -46,7 +46,12 @@ class Test extends Command
         $this->setName($this->testModel->getName());
         $this->setDescription($this->testModel->getDescription());
         foreach ($this->testModel->getArgumentsDefinition() as $argument) {
-            $this->addArgument($argument['name'], $argument['mode'], $argument['description'], $argument['default']);
+            $this->addArgument(
+                (string)$argument['name'],
+                $argument['mode'],
+                (string)$argument['description'],
+                $argument['default']
+            );
         }
     }
 
@@ -72,7 +77,7 @@ class Test extends Command
         try {
             $inputValues = [];
             foreach ($this->testModel->getArgumentsDefinition() as $arguments) {
-                $name = $arguments['name'] ?? null;
+                $name = (string)($arguments['name'] ?? null);
                 if (empty($name)) {
                     continue;
                 }
@@ -86,7 +91,7 @@ class Test extends Command
             $message = sprintf('<fg=red;options=bold>Something went wrong</>: <fg=white>\'%s\'</>: <fg=yellow>%s</>.', $e->getMessage(), $e->getTraceAsString());
             $this->logger->error($e->getMessage(), $e->getTrace());
             $output->writeln($message);
-            return true;
+            return 1;
         }
         return $this->displayMessages($output);
     }
