@@ -6,6 +6,7 @@ namespace JaroslawZielinski\Diagnostics\Model\Test;
 
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class Test
 {
@@ -24,10 +25,11 @@ class Test
     /**
      * TODO: a method for Console call
      */
-    public function execute(array $input): array
+    public function execute(array $input, OutputInterface $output): array
     {
         $testName = 'test';
         $testValue = $input[$testName] ?? null;
+        $output->writeln(sprintf('Test Input \'%s\' = \'%s\'', $testName, $testValue));
         $this->logger->info('Test Input', [$testName => $testValue]);
         return [
             __('Done. [%1: %2]', $testName, $testValue)

@@ -189,6 +189,7 @@ use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class Customer extends Test
 {
@@ -215,7 +216,7 @@ class Customer extends Test
      *
      * TODO: add Your code here... (this is only an example)
      */
-    public function execute(array $input): array
+    public function execute(array $input, OutputInterface $output): array
     {
         $customerId = $input['customer_id'] ?? null;
         try {
@@ -227,6 +228,7 @@ class Customer extends Test
                 __('Something went wrong [message: %1]', $e->getMessage())
             ];
         }
+        $output->writeln('OK');
         $this->logger->info('Customer Input', [
             'customer_id' => $customerId,
             'email' => $email

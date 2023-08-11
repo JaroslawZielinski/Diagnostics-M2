@@ -83,7 +83,7 @@ class Test extends Command
                 }
                 $inputValues[$name] = $input->getArgument($name);
             }
-            $messages = $this->testModel->execute($inputValues);
+            $messages = $this->testModel->execute($inputValues, $output);
             foreach ($messages as $message) {
                 $this->addMessage((string)$message);
             }
