@@ -49,4 +49,10 @@
             <argument name="logger" xsi:type="object">JaroslawZielinski\Diagnostics\Logger</argument>
         </arguments>
     </type>
+
+    <type name="JaroslawZielinski\Diagnostics\Model\Console\Output">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\Diagnostics\Logger</argument>
+        </arguments>
+    </type>
 </config>

@@ -296,17 +296,35 @@ declare(strict_types=1);
 
 namespace Vendor\Diagnostics\Observer\Adminhtml;
 
+use JaroslawZielinski\Diagnostics\Model\Console\Output as ConsoleOutput;
+use JaroslawZielinski\Diagnostics\Console\Command\Test as TestCommand;
 use Magento\Framework\App\Request\Http;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
+use Symfony\Component\Console\Exception\ExceptionInterface;
+use Symfony\Component\Console\Input\ArrayInput;
 
 class Test implements ObserverInterface
 {
     /**
+     * @var ConsoleOutput
+     */
+    private $output;
+    
+    /**
+     * @var TestCommand
+     */
+    private $testCommand;
+
+    /**
      * TODO: Your DI here...
      */
-    public function __construct()
-    {
+    public function __construct(
+        ConsoleOutput $output,
+        TestCommand $testCommand
+    ) {
+        $this->output = $output;
+        $this->testCommand = $testCommand;
     }
 
     /**
@@ -319,6 +337,9 @@ class Test implements ObserverInterface
         $request = $event->getRequest();
 
         //TODO: Your Code here to test in backend controller
+        $customerId = 1;
+        $input = new ArrayInput(['customer_id' => $customerId]);
+        $this->testCommand->run($input, $this->output);
 
         /** @var array $result */
         $result = $event->getResult();
