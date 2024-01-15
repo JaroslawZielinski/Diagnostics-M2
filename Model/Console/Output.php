@@ -30,7 +30,7 @@ class Output extends \Symfony\Component\Console\Output\Output
     /**
      * @inheritDoc
      */
-    protected function doWrite(string $message, bool $newline)
+    protected function doWrite($message, $newline)
     {
         $this->logger->info($message);
     }
