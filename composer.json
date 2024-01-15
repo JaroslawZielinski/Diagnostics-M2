@@ -3,6 +3,9 @@
     "description": "This module is for diagnostics in project",
     "type": "magento2-module",
     "license": "MIT",
+    "require": {
+        "symfony/console": "^v4"
+    },
     "autoload": {
         "files": [
             "registration.php"
