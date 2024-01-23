@@ -7,6 +7,10 @@
                 <item name="diagnostics_test" xsi:type="object">
                     JaroslawZielinski\Diagnostics\Console\Command\Test
                 </item>
+
+                <item name="dt_average_order_processing_time" xsi:type="object">
+                    JaroslawZielinski\Diagnostics\Console\Command\OrderCommand
+                </item>
             </argument>
         </arguments>
     </type>
