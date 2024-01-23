@@ -5,6 +5,10 @@
             <settings>
                 <store_teller_enable>0</store_teller_enable>
             </settings>
+
+            <progress_bar>
+                <format>very_verbose</format>
+            </progress_bar>
         </jaroslawzielinski_diagnostics>
     </default>
 </config>
