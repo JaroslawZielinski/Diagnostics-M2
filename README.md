@@ -1,6 +1,8 @@
 # Diagnostics-M2
 a diagnostic module in magento2 project that can be used as a scaffolding for Your new code.
 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jaroslawzielinski)
+
 ## Why do you need this module in Your Project?
 
 ### Introduction

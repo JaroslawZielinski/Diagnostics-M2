@@ -13,5 +13,11 @@
         "psr-4": {
             "JaroslawZielinski\\Diagnostics\\": ""
         }
-    }
+    },
+    "funding": [
+        {
+          "type": "By me a coffee",
+          "url": "https://www.buymeacoffee.com/jaroslawzielinski"
+        }
+    ]
 }
