@@ -13,6 +13,8 @@ class Config
 
     public const PATH_PROGRESSBAR_FORMAT = 'jaroslawzielinski_diagnostics/progress_bar/format';
 
+    public const PATH_STORE_LOCALE = 'general/locale/code';
+
     /**
      * @var ScopeConfigInterface
      */
@@ -36,5 +38,11 @@ class Config
         $progressBarFormat = $this->scopeConfig
             ->getValue(self::PATH_PROGRESSBAR_FORMAT);
         return empty($progressBarFormat) ? null : (string)$progressBarFormat;
+    }
+
+    public function getStoreLocale(): ?string
+    {
+        $storeLocale = $this->scopeConfig->getValue(self::PATH_STORE_LOCALE, ScopeInterface::SCOPE_STORE);
+        return empty($storeLocale) ? null : (string)$storeLocale;
     }
 }
