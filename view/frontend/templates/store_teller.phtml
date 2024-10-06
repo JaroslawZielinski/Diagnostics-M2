@@ -10,7 +10,7 @@
             <?php if ('text' === $entry['type']): ?>
                 <?= $entry['value']; ?>
             <?php elseif ('link' === $entry['type']): ?>
-                <a <?php foreach ($entry['options'] as $attribute => $value): ?> <?= $attribute?>="<?= $value; ?>"
+                <a<?php foreach ($entry['options'] as $attribute => $value): ?> <?= $attribute?>="<?= $value; ?>"
                 <?php endforeach; ?>><?= $entry['value']; ?></a>
             <?php endif; ?>
         </span>
