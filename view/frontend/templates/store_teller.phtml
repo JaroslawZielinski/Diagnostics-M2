@@ -7,7 +7,8 @@
     <strong><?= __('store_code'); ?></strong>:<?= $block->getStoreCode(); ?> <br />
     <strong><?= __('website_id'); ?></strong>:<?= $block->getWebsiteId(); ?> <br />
     <strong><?= __('store_name'); ?></strong>:<?= $block->getStoreName(); ?> <br />
-    <strong><?= __('store_url'); ?></strong>:<?= $block->getStoreUrl(); ?> <br />
+    <strong><?= __('store_url'); ?></strong>:
+        <a href="<?= $block->getStoreUrl(); ?>" target="_blank"><?= $block->getStoreUrl(); ?></a> <br />
     <strong><?= __('is_store_active'); ?></strong>:<?= $block->isStoreActive(); ?> <br />
     <strong><?= __('locale'); ?></strong>:<?= $block->getLocale(); ?> <br />
 </div>
