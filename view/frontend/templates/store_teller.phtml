@@ -1,14 +1,18 @@
 <?php
     /** @var \JaroslawZielinski\Diagnostics\Block\StoreTeller $block */
+    $entries = $block->getEntries();
 ?>
-<div>
+<div id="diagnostics-m2" class="diagnostics-m2 store-teller">
     <p><?= __('Store:'); ?></p>
-    <strong><?= __('store_id'); ?></strong>:<?= $block->getStoreId(); ?> <br />
-    <strong><?= __('store_code'); ?></strong>:<?= $block->getStoreCode(); ?> <br />
-    <strong><?= __('website_id'); ?></strong>:<?= $block->getWebsiteId(); ?> <br />
-    <strong><?= __('store_name'); ?></strong>:<?= $block->getStoreName(); ?> <br />
-    <strong><?= __('store_url'); ?></strong>:
-        <a href="<?= $block->getStoreUrl(); ?>" target="_blank"><?= $block->getStoreUrl(); ?></a> <br />
-    <strong><?= __('is_store_active'); ?></strong>:<?= $block->isStoreActive(); ?> <br />
-    <strong><?= __('locale'); ?></strong>:<?= $block->getLocale(); ?> <br />
+    <?php foreach ($entries as $entry): ?>
+        <span class="entry">
+            <strong><?= $entry['label']; ?></strong>:
+            <?php if ('text' === $entry['type']): ?>
+                <?= $entry['value']; ?>
+            <?php elseif ('link' === $entry['type']): ?>
+                <a <?php foreach ($entry['options'] as $attribute => $value): ?> <?= $attribute?>="<?= $value; ?>"
+                <?php endforeach; ?>><?= $entry['value']; ?></a>
+            <?php endif; ?>
+        </span>
+    <?php endforeach; ?>
 </div>
