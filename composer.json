@@ -4,7 +4,7 @@
     "type": "magento2-module",
     "license": "MIT",
     "require": {
-        "symfony/console": "^v4 || ^v5"
+        "symfony/console": "^v4 || ^v5 || ^v6"
     },
     "autoload": {
         "files": [
