@@ -1,9 +1,34 @@
 <?php
     /** @see https://www.w3schools.com/Css/css_positioning.asp#w3-theme-border */
     /** @see https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_popup */
+    /** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
     /** @var \JaroslawZielinski\Diagnostics\Block\StoreTeller $block */
     $entries = $block->getEntries();
+    $minWidth = $block->getPopupMinWidth();
+    $diagnosticsPanelButtonColor = $block->getButtonColor();
+    $diagnosticsPanelButtonBackground = $block->getButtonBackground();
+    $diagnosticsPanelPopupColor = $block->getPopupColor();
+    $diagnosticsPanelPopupBackground = $block->getPopupBackground();
 ?>
+<?php
+    $diagnosticsPanelCustomCss = <<<css
+        .diagnostics-panel-button .entry {
+            min-width: {$minWidth}px;
+        }
+        .diagnostics-panel-button .popup .popuptext {
+            color: {$diagnosticsPanelPopupColor};
+            background-color: {$diagnosticsPanelPopupBackground};
+        }
+        .diagnostics-panel-button {
+            color: {$diagnosticsPanelButtonColor};
+            background-color: {$diagnosticsPanelButtonBackground};
+        }
+        .diagnostics-panel-button .popup .popuptext::after {
+            border-color: {$diagnosticsPanelPopupBackground} transparent transparent transparent;
+        }
+css;
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('style', [], $diagnosticsPanelCustomCss, false) ?>
 <div class="diagnostics-panel-button" onclick="diagnosticsPopup();">
     <div class="popup">
         <div class="popuptext" id="diagnostics-panel">
@@ -25,10 +50,12 @@
     </div>
     <?= __('Tell me your <code>store(y)</code>!'); ?>
 </div>
-
-<script type="text/javascript">
+<?php
+    $diagnosticsPanelScript = <<<script
     function diagnosticsPopup() {
         var popup = document.getElementById('diagnostics-panel');
         popup.classList.toggle('show');
     }
-</script>
+script;
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', ['type' => 'text/javascript'], $diagnosticsPanelScript, false) ?>
