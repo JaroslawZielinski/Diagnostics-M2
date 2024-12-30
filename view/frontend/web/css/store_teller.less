@@ -9,7 +9,6 @@
     left:0;
     z-index:999;
     cursor: pointer;
-    /* Popup container - can be anything you want */
     .popup {
         position: relative;
         display: inline-block;
@@ -19,7 +18,6 @@
         -ms-user-select: none;
         user-select: none;
         bottom: 28px;
-        /* The actual popup */
         .popuptext {
             visibility: hidden;
             background-color: #555;
@@ -43,7 +41,6 @@
                     }
                 }
             }
-            /* Popup arrow */
             &::after {
                 content: "";
                 position: absolute;
@@ -55,24 +52,18 @@
                 border-color: #555 transparent transparent transparent;
             }
         }
-
-        /* Toggle this class - hide and show the popup */
         .show {
             visibility: visible;
             -webkit-animation: fadeIn 1s;
             animation: fadeIn 1s;
         }
-        /* Color link */
         a {
             color: orange;
         }
-
-        /* Add animation (fade in the popup) */
         @-webkit-keyframes fadeIn {
             from {opacity: 0;}
             to {opacity: 1;}
         }
-
         @keyframes fadeIn {
             from {opacity: 0;}
             to {opacity:1 ;}
