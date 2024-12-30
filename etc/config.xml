@@ -4,6 +4,16 @@
         <jaroslawzielinski_diagnostics>
             <settings>
                 <store_teller_enable>0</store_teller_enable>
+
+                <popup_min_width>500</popup_min_width>
+
+                <button_color>#000000</button_color>
+
+                <button_background>#cae8ca</button_background>
+
+                <popup_color>#ffffff</popup_color>
+
+                <popup_background>#3b5d8d</popup_background>
             </settings>
 
             <progress_bar>

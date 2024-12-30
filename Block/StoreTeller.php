@@ -129,4 +129,39 @@ class StoreTeller extends Template
     {
         return $this->config->getStoreLocale();
     }
+
+    /**
+     */
+    public function getPopupMinWidth(): ?string
+    {
+        return $this->config->getStoreTellerPopupMinWidth();
+    }
+
+    /**
+     */
+    public function getButtonColor(): ?string
+    {
+        return $this->config->getStoreTellerButtonColor();
+    }
+
+    /**
+     */
+    public function getButtonBackground(): ?string
+    {
+        return $this->config->getStoreTellerButtonBackground();
+    }
+
+    /**
+     */
+    public function getPopupColor(): ?string
+    {
+        return  $this->config->getStoreTellerPopupColor();
+    }
+
+    /**
+     */
+    public function getPopupBackground(): ?string
+    {
+        return $this->config->getStoreTellerPopupBackground();
+    }
 }

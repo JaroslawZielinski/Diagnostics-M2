@@ -28,6 +28,60 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
+                <field id="popup_min_width" translate="label" type="text" sortOrder="20" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Popup min width</label>
+
+                    <depends>
+                        <field id="store_teller_enable">1</field>
+                    </depends>
+                </field>
+
+                <!-- @see https://webkul.com/blog/add-color-picker-magento2-system-config/ -->
+                <field id="button_color" translate="label" type="text" sortOrder="30" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Button Colour</label>
+
+                    <frontend_model>JaroslawZielinski\Diagnostics\Block\Colour</frontend_model>
+
+                    <depends>
+                        <field id="store_teller_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="button_background" translate="label" type="text" sortOrder="40" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Button Background</label>
+
+                    <frontend_model>JaroslawZielinski\Diagnostics\Block\Colour</frontend_model>
+
+                    <depends>
+                        <field id="store_teller_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="popup_color" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Popup Colour</label>
+
+                    <frontend_model>JaroslawZielinski\Diagnostics\Block\Colour</frontend_model>
+
+                    <depends>
+                        <field id="store_teller_enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="popup_background" translate="label" type="text" sortOrder="60" showInDefault="1"
+                    showInWebsite="1" showInStore="1">
+                    <label>Popup Background</label>
+
+                    <frontend_model>JaroslawZielinski\Diagnostics\Block\Colour</frontend_model>
+
+                    <depends>
+                        <field id="store_teller_enable">1</field>
+                    </depends>
+                </field>
+
                 <attribute type="expanded">0</attribute>
             </group>
 
