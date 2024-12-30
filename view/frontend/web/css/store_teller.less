@@ -1,12 +1,81 @@
-.diagnostics-m2 {
-    &.store-teller {
-        .entry {
-            display: block;
-            .link {
-                &:hover {
-                    text-decoration: none;
+.diagnostics-panel-button {
+    border-width:3px;
+    background-color:#cae8ca;
+    border-style:solid;
+    border-radius: 16px;
+    position:fixed;
+    padding:7px;
+    bottom:0;
+    left:0;
+    z-index:999;
+    cursor: pointer;
+    /* Popup container - can be anything you want */
+    .popup {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        bottom: 28px;
+        /* The actual popup */
+        .popuptext {
+            visibility: hidden;
+            background-color: #555;
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 1%;
+            .diagnostics-m2 {
+                &.store-teller {
+                    .entry {
+                        display: block;
+                        .link {
+                            &:hover {
+                                text-decoration: none;
+                            }
+                        }
+                    }
                 }
             }
+            /* Popup arrow */
+            &::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: #555 transparent transparent transparent;
+            }
+        }
+
+        /* Toggle this class - hide and show the popup */
+        .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s;
+        }
+        /* Color link */
+        a {
+            color: orange;
+        }
+
+        /* Add animation (fade in the popup) */
+        @-webkit-keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity:1 ;}
         }
     }
 }
