@@ -1,18 +1,34 @@
 <?php
+    /** @see https://www.w3schools.com/Css/css_positioning.asp#w3-theme-border */
+    /** @see https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_popup */
     /** @var \JaroslawZielinski\Diagnostics\Block\StoreTeller $block */
     $entries = $block->getEntries();
 ?>
-<div id="diagnostics-m2" class="diagnostics-m2 store-teller">
-    <p><?= __('Store:'); ?></p>
-    <?php foreach ($entries as $entry): ?>
-        <span class="entry">
-            <strong><?= $entry['label']; ?></strong>:
-            <?php if ('text' === $entry['type']): ?>
-                <?= $entry['value']; ?>
-            <?php elseif ('link' === $entry['type']): ?>
-                <a<?php foreach ($entry['options'] as $attribute => $value): ?> <?= $attribute?>="<?= $value; ?>"
-                <?php endforeach; ?>><?= $entry['value']; ?></a>
-            <?php endif; ?>
-        </span>
-    <?php endforeach; ?>
+<div class="diagnostics-panel-button" onclick="diagnosticsPopup();">
+    <div class="popup">
+        <div class="popuptext" id="diagnostics-panel">
+            <div id="diagnostics-m2" class="diagnostics-m2 store-teller">
+                <p><?= __('Store:'); ?></p>
+                <?php foreach ($entries as $entry): ?>
+                    <span class="entry">
+                        <strong><?= $entry['label']; ?></strong>:
+                        <?php if ('text' === $entry['type']): ?>
+                            <?= $entry['value']; ?>
+                        <?php elseif ('link' === $entry['type']): ?>
+                            <a<?php foreach ($entry['options'] as $attribute => $value): ?> <?= $attribute?>="<?= $value; ?>"
+                            <?php endforeach; ?>><?= $entry['value']; ?></a>
+                        <?php endif; ?>
+                    </span>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+    <?= __('Tell me your <code>store(y)</code>!'); ?>
 </div>
+
+<script type="text/javascript">
+    function diagnosticsPopup() {
+        var popup = document.getElementById('diagnostics-panel');
+        popup.classList.toggle('show');
+    }
+</script>
