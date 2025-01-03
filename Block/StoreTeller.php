@@ -7,7 +7,6 @@ namespace JaroslawZielinski\Diagnostics\Block;
 use Magento\Backend\Block\Template\Context;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\View\Element\Template;
-use Magento\Store\Model\StoreManagerInterface;
 use JaroslawZielinski\Diagnostics\Model\Config;
 use Magento\Store\Model\Store;
 
@@ -19,21 +18,14 @@ class StoreTeller extends Template
     protected $config;
 
     /**
-     * @var StoreManagerInterface
-     */
-    protected $storeManager;
-
-    /**
      * @inheirtDoc
      */
     public function __construct(
         Config $config,
-        StoreManagerInterface $storeManager,
         Context $context,
         array $data = []
     ) {
         $this->config = $config;
-        $this->storeManager = $storeManager;
         parent::__construct($context, $data);
     }
 
@@ -41,20 +33,22 @@ class StoreTeller extends Template
      */
     public function getEntries(): array
     {
+        $storeName = $this->getStoreName();
+        $storeUrl = $this->getStoreUrl();
         return [
             ['type' => 'text', 'label' => __('store_id'), 'value' => $this->getStoreId()],
             ['type' => 'text', 'label' => __('store_code'), 'value' => $this->getStoreCode()],
             ['type' => 'text', 'label' => __('website_id'), 'value' => $this->getWebsiteId()],
-            ['type' => 'text', 'label' => __('store_name'), 'value' => $this->getStoreName()],
+            ['type' => 'text', 'label' => __('store_name'), 'value' => $storeName],
             [
                 'type' => 'link',
                 'label' => __('store_url'),
-                'value' => $this->getStoreUrl(),
+                'value' => $storeUrl,
                 'options' => [
                     'class' => 'link',
-                    'title' => $this->getStoreName(),
+                    'title' => $storeName,
                     'target' => '_blank',
-                    'href' => $this->getStoreUrl(),
+                    'href' => $storeUrl,
                 ]
             ],
             ['type' => 'text', 'label' => __('is_store_active'), 'value' => $this->isStoreActive()],
@@ -66,7 +60,7 @@ class StoreTeller extends Template
      */
     private function getStore(): Store
     {
-        return $this->storeManager->getStore();
+        return $this->_storeManager->getStore();
     }
 
     /**
