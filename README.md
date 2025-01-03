@@ -560,3 +560,10 @@ echo "app/code/Vendor/Diagnostics/" >> .git/info/exclude
 Modify Your Vendor/Diagnostics module, add Your code there, use X Debug and...
 
 ## ...Enjoy Your coding!
+
+## One more usefull feature for Multistore
+A little helper saying store details. Feature helping to acknowlege the Store parameters, name, locale and others.
+### Backend Configuration
+![](docs/store_teller_admin_panel.png)
+### Frontend
+![](docs/please_tell_me_your_store.png)
