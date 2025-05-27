@@ -9,9 +9,15 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\View\Element\Template;
 use JaroslawZielinski\Diagnostics\Model\Config;
 use Magento\Store\Model\Store;
+use Magento\Framework\App\RequestInterface;
 
 class StoreTeller extends Template
 {
+    /**
+     * @var RequestInterface
+     */
+    protected $request;
+
     /**
      * @var Config
      */
@@ -21,10 +27,12 @@ class StoreTeller extends Template
      * @inheirtDoc
      */
     public function __construct(
+        RequestInterface $request,
         Config $config,
         Context $context,
         array $data = []
     ) {
+        $this->request = $request;
         $this->config = $config;
         parent::__construct($context, $data);
     }
@@ -35,7 +43,14 @@ class StoreTeller extends Template
     {
         $storeName = $this->getStoreName();
         $storeUrl = $this->getStoreUrl();
+        $route = sprintf(
+            '%s_%s_%s',
+            $this->request->getRouteName(),
+            $this->request->getControllerName(),
+            $this->request->getActionName()
+        );
         return [
+            ['type' => 'text', 'label' => __('route'), 'value' => $route],
             ['type' => 'text', 'label' => __('store_id'), 'value' => $this->getStoreId()],
             ['type' => 'text', 'label' => __('store_code'), 'value' => $this->getStoreCode()],
             ['type' => 'text', 'label' => __('website_id'), 'value' => $this->getWebsiteId()],
