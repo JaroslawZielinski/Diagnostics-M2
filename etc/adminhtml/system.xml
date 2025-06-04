@@ -107,6 +107,34 @@
 
                 <attribute type="expanded">0</attribute>
             </group>
+
+            <group id="ssl_certificates_check" translate="label" type="text" sortOrder="30" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+
+                <label>SSL Certificate Check</label>
+
+                <!-- @see https://magento.stackexchange.com/questions/202487/date-field-system-xml -->
+                <field id="days_trigger" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Days Trigger</label>
+                </field>
+
+                <field id="staging_domains" translate="label comment" sortOrder="20" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Staging Domains list</label>
+                    <frontend_model>JaroslawZielinski\Diagnostics\Block\Adminhtml\Form\Field\Domains</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment><![CDATA[Please write domain only (without <i>staging.</i> prefix)]]></comment>
+                </field>
+
+                <field id="www_domains" translate="label comment" sortOrder="30" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                    <label>Www Domains list</label>
+                    <frontend_model>JaroslawZielinski\Diagnostics\Block\Adminhtml\Form\Field\Domains</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment><![CDATA[Please write domain only (without <i>www.</i> prefix)]]></comment>
+                </field>
+            </group>
         </section>
     </system>
 </config>

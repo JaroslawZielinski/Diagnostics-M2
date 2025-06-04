@@ -4,6 +4,7 @@
     "type": "magento2-module",
     "license": "MIT",
     "require": {
+        "ext-openssl": "*",
         "symfony/console": "^v4 || ^v5 || ^v6"
     },
     "autoload": {

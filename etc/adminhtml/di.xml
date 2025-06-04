@@ -8,7 +8,6 @@
 
     <type name="Magento\Backend\Model\Menu\Item">
         <plugin name="add-frontend-url-in-admin-menu"
-            type="JaroslawZielinski\Diagnostics\Plugin\Backend\Model\Menu\ItemPlugin"
-        sortOrder="10" disabled="false" />
+            type="JaroslawZielinski\Diagnostics\Plugin\Backend\Model\Menu\ItemPlugin" sortOrder="10" disabled="false" />
     </type>
 </config>

@@ -19,6 +19,14 @@
             <progress_bar>
                 <format>very_verbose</format>
             </progress_bar>
+
+            <ssl_certificates_check>
+                <days_trigger>30</days_trigger>
+
+                <staging_domains><![CDATA[{}]]></staging_domains>
+
+                <www_domains><![CDATA[{}]]></www_domains>
+            </ssl_certificates_check>
         </jaroslawzielinski_diagnostics>
     </default>
 </config>
