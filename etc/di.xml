@@ -11,6 +11,18 @@
                 <item name="dt_average_order_processing_time" xsi:type="object">
                     JaroslawZielinski\Diagnostics\Console\Command\OrderCommand
                 </item>
+
+	            <item name="product_search_process_command" xsi:type="object">
+                    JaroslawZielinski\Diagnostics\Console\Command\ProductSearchProcessCommand
+                </item>
+
+                <item name="ssl_certificates_check_command" xsi:type="object">
+                    JaroslawZielinski\Diagnostics\Console\Command\SslCertificatesCheckCommand
+                </item>
+
+                <item name="create_customer_without_password_command" xsi:type="object">
+                    JaroslawZielinski\Diagnostics\Console\Command\CreateCustomerWithoutPasswordCommand
+                </item>
             </argument>
         </arguments>
     </type>
@@ -55,6 +67,44 @@
     </type>
 
     <type name="JaroslawZielinski\Diagnostics\Model\Console\Output">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\Diagnostics\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\Diagnostics\Model\Console\SslCertificates\Check">
+        <arguments>
+            <argument name="script" xsi:type="string">ssl_check.sh</argument>
+
+            <argument name="logger" xsi:type="object">JaroslawZielinski\Diagnostics\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\Diagnostics\Model\Console\ProductsSearch\Process">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\Diagnostics\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\Diagnostics\Model\Product\Search\Action">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\Diagnostics\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\Diagnostics\Model\Product\Find">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\Diagnostics\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\Diagnostics\Console\Command\ProductSearchProcessCommand">
+        <arguments>
+            <argument name="logger" xsi:type="object">JaroslawZielinski\Diagnostics\Logger</argument>
+        </arguments>
+    </type>
+
+    <type name="JaroslawZielinski\Diagnostics\Console\Command\SslCertificatesCheckCommand">
         <arguments>
             <argument name="logger" xsi:type="object">JaroslawZielinski\Diagnostics\Logger</argument>
         </arguments>

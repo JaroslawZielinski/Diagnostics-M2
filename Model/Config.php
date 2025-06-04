@@ -6,6 +6,8 @@ namespace JaroslawZielinski\Diagnostics\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
+use JaroslawZielinski\Diagnostics\Helper\Data;
+use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
 
 class Config
 {
@@ -23,7 +25,24 @@ class Config
 
     public const PATH_PROGRESSBAR_FORMAT = 'jaroslawzielinski_diagnostics/progress_bar/format';
 
+    //TODO: add Your constants here...
+    public const PATH_SSLCERTIFICATES_CHECK_STAGING_DOMAINS =
+        'jaroslawzielinski_diagnostics/ssl_certificates_check/staging_domains';
+
+    public const PATH_SSLCERTIFICATES_CHECK_PROD_DOMAINS =
+        'jaroslawzielinski_diagnostics/ssl_certificates_check/prod_domains';
+
+    public const PATH_SSLCERTIFICATES_CHECK_WWW_DOMAINS =
+        'jaroslawzielinski_diagnostics/ssl_certificates_check/www_domains';
+
+    public const PATH_SSLCERTIFICATES_DAYS_TRIGGER = 'jaroslawzielinski_diagnostics/ssl_certificates_check/days_trigger';
+
     public const PATH_STORE_LOCALE = 'general/locale/code';
+
+    /**
+     * @var JsonSerializer
+     */
+    protected $jsonSerializer;
 
     /**
      * @var ScopeConfigInterface
@@ -32,8 +51,11 @@ class Config
 
     /**
      */
-    public function __construct(ScopeConfigInterface $scopeConfig)
-    {
+    public function __construct(
+        JsonSerializer $jsonSerializer,
+        ScopeConfigInterface $scopeConfig
+    ) {
+        $this->jsonSerializer = $jsonSerializer;
         $this->scopeConfig = $scopeConfig;
     }
 
@@ -83,6 +105,36 @@ class Config
         $progressBarFormat = $this->scopeConfig
             ->getValue(self::PATH_PROGRESSBAR_FORMAT);
         return empty($progressBarFormat) ? null : (string)$progressBarFormat;
+    }
+
+    public function getStagingDomains(): ?array
+    {
+        $serializedStagingDomains =
+            $this->scopeConfig->getValue(self::PATH_SSLCERTIFICATES_CHECK_STAGING_DOMAINS) ?? '{}';
+        return Data::prefixStringArray($this->jsonSerializer->unserialize($serializedStagingDomains), 'staging.');
+    }
+
+    public function getWwwDomains(): ?array
+    {
+        $serializedWwwDomains =
+            $this->scopeConfig->getValue(self::PATH_SSLCERTIFICATES_CHECK_WWW_DOMAINS) ?? '{}';
+        return Data::prefixStringArray($this->jsonSerializer->unserialize($serializedWwwDomains));
+    }
+
+    public function getDomains(): ?array
+    {
+        $domains = $this->getStagingDomains();
+        if (!empty($this->getWwwDomains())) {
+            $domains = array_merge($domains, $this->getWwwDomains());
+        }
+        return $domains;
+    }
+
+    public function getDaysTrigger(): int
+    {
+        return (int)(
+            $this->scopeConfig->getValue(self::PATH_SSLCERTIFICATES_DAYS_TRIGGER, ScopeInterface::SCOPE_STORE) ?? '0'
+        );
     }
 
     public function getStoreLocale(): ?string
