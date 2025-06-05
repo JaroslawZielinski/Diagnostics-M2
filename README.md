@@ -562,7 +562,16 @@ Modify Your Vendor/Diagnostics module, add Your code there, use X Debug and...
 ## ...Enjoy Your coding!
 
 ## One more usefull feature for Multistore
-A little helper saying store details. Feature helping to acknowlege the Store parameters like name, id, code, locale and others.
+A little helper saying store details. Feature helping to acknowlege the Store parameters like route, name, id, code, locale and others.
+Available indicators:
+* route (&lt;route name&gt;&lowbar;&lt;controller name&gt;&lowbar;&lt;action name&gt;)
+* store_id
+* store_code
+* website_id
+* store_name
+* store_url
+* is_store_active
+* locale
 
 ### Backend Configuration
 ![](docs/store_teller_admin_panel.png)
