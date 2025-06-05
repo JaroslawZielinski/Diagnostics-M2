@@ -130,7 +130,7 @@ class Check extends Test
     {
         try {
             $rootDir = $this->filesystem->getDirectoryRead(DirectoryList::ROOT)->getAbsolutePath();
-            $rootDir .= 'vendor/jaroslawzielinski/diagnostics-m2/';
+            $rootDir .= 'vendor/jaroslawzielinski/diagnostics-m2/scripts';
             $result = $this->state->emulateAreaCode(Area::AREA_ADMINHTML, [$this, 'commandLine'], [$rootDir]);
             $this->logger->info('SSL Certificates Check', $result);
         } catch (\Exception|LocalizedException $e) {

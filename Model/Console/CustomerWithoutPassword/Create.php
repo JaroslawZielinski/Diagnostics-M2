@@ -16,6 +16,7 @@ use Magento\Store\Model\StoreManagerInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
+use Magento\LoginAsCustomerAssistance\Model\SetAssistance;
 
 class Create extends Test
 {
@@ -29,7 +30,12 @@ class Create extends Test
 
     public const PREFIX = 'prefix';
 
-    public const MOBILE_PHONE = 'mobilephone';
+    public const IS_ASSISTANCE_ALLOWED = 'isassistance_allowed';
+
+    /**
+     * @var SetAssistance
+     */
+    private $setAssistance;
 
     /**
      * @var CustomerFactory
@@ -65,6 +71,7 @@ class Create extends Test
      * @inheritDoc
      */
     public function __construct(
+        SetAssistance $setAssistance,
         CustomerFactory $customerFactory,
         StoreManagerInterface $storeManager,
         CustomerRepositoryInterface $customerRepository,
@@ -72,6 +79,7 @@ class Create extends Test
         EmailNotificationInterface $emailNotification,
         LoggerInterface $logger
     ) {
+        $this->setAssistance = $setAssistance;
         $this->customerFactory = $customerFactory;
         $this->storeManager = $storeManager;
         $this->customerRepository = $customerRepository;
@@ -106,10 +114,7 @@ class Create extends Test
         if (empty($lastName)) {
             throw new LocalizedException(__('Write last name first.'));
         }
-        $mobilePhone = $input[self::MOBILE_PHONE];
-        if (empty($mobilePhone)) {
-            throw new LocalizedException(__('Write mobile phone first.'));
-        }
+        $isAssistanceAllowed = $input[self::IS_ASSISTANCE_ALLOWED] ?? null;
         $this->output = $output;
         try {
             $store = $this->storeManager->getStore($storeId);
@@ -124,13 +129,17 @@ class Create extends Test
                 ->setPrefix($prefix)
                 ->setFirstname($firstName)
                 ->setLastname($lastName);
+            /** @var \Magento\Customer\Api\Data\CustomerExtension $extensionAttributes */
             $extensionAttributes = $customerDataModel->getExtensionAttributes();
             if (!$extensionAttributes) {
                 $extensionAttributes = $this->customerExtensionFactory->create();
             }
-            $extensionAttributes->setMobilePhone($mobilePhone);
+            $extensionAttributes->setAssistanceAllowed($isAssistanceAllowed);
             $customerDataModel->setExtensionAttributes($extensionAttributes);
             $customerDataModel = $this->customerRepository->save($customerDataModel);
+            if ($isAssistanceAllowed) {
+                $this->setAssistance->execute((int)$customerDataModel->getId(), true);
+            }
             $this->emailNotification->newAccount(
                 $customerDataModel,
                 EmailNotificationInterface::NEW_ACCOUNT_EMAIL_REGISTERED_NO_PASSWORD,
@@ -186,9 +195,9 @@ class Create extends Test
                 'default' => null
             ],
             [
-                'name' => self::MOBILE_PHONE,
-                'mode' => InputArgument::REQUIRED,
-                'description' => (string)__('Mobile Phone'),
+                'name' => self::IS_ASSISTANCE_ALLOWED,
+                'mode' => InputArgument::OPTIONAL,
+                'description' => (string)__('Is Assistance Allowed (type \'1\' if true)'),
                 'default' => null
             ]
         ];
