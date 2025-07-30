@@ -48,10 +48,12 @@ class Test extends Action
      */
     public function execute()
     {
+        $title = __('JaroslawZielinski Diagnose Test');
         /** @var Page $resultPage */
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-        $resultPage->setActiveMenu('JaroslawZielinski::diagnose_test');
-        $resultPage->getConfig()->getTitle()->prepend(__('JaroslawZielinski Diagnose Test'));
+        $resultPage->setActiveMenu('JaroslawZielinski_Diagnostics::menu');
+        $resultPage->getConfig()->getTitle()->prepend($title);
+        $resultPage->addBreadcrumb(__('Diagnostics'), $title);
         try {
             //TODO:
             $result = [];

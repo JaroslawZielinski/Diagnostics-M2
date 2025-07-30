@@ -1,0 +1,23 @@
+.show-diagnostics-logo(@opacity) {
+    background: url(../images/diagnostics.png) no-repeat center;
+    height: calc(3rem);
+    content: " ";
+    opacity: @opacity;
+}
+
+.admin__menu {
+    #menu-jaroslawzielinski-diagnostics-menu > a {
+        &:before {
+            .show-diagnostics-logo(0.5);
+        }
+        &:hover:before {
+            .show-diagnostics-logo(1.0);
+        }
+    }
+
+    #menu-jaroslawzielinski-diagnostics._active._show > a {
+        &:before {
+            .show-diagnostics-logo(1.0);
+        }
+    }
+}
