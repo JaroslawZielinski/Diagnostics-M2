@@ -37,7 +37,7 @@ echo "app/code/Vendor/Diagnostics/" >> .git/info/exclude
 
 You will have an easy way to test/debug backend controller (1.), frontend controller in new tab (2.) and view/edit Your dedicated configuration (3.) in the admin panel from the menu. You may do it all from one place, without affecting the repo (You may change Your branches, and the module will stay there, all the time unaffected...). See the screenshot below:
 
-![](docs/module_in_admin.png)
+![](docs/module_in_admin_.png)
 
 Also you have a CLI command that you may use/modify whatever way You like:
 
@@ -574,7 +574,7 @@ Available indicators:
 * locale
 
 ### Backend Configuration
-![](docs/store_teller_admin_panel.png)
+![](docs/store_teller_admin_panel_.png)
 ### Frontend
 ![](docs/please_tell_me_your_store.png)
 
