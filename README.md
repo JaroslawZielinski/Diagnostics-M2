@@ -395,7 +395,7 @@ class Test extends \JaroslawZielinski\Diagnostics\Block\Adminhtml\Test
 
 ```
 
-#### Vendor/Diagnostics/view/adminhtml/layout/JaroslawZielinski_diagnostics_diagnose_test.xml
+#### Vendor/Diagnostics/view/adminhtml/layout/jaroslawzielinski_diagnostics_diagnose_test.xml
 
 ```xml
 <?xml version="1.0"?>
@@ -521,7 +521,7 @@ class Test extends \JaroslawZielinski\Diagnostics\Block\Test
 
 ```
 
-#### Vendor/Diagnostics/view/frontend/layout/JaroslawZielinski_diagnostics_diagnose_test.xml
+#### Vendor/Diagnostics/view/frontend/layout/jaroslawzielinski_diagnostics_diagnose_test.xml
 
 ```xml
 <?xml version="1.0"?>
