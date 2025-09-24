@@ -59,7 +59,7 @@ composer require --dev jaroslawzielinski/diagnostics-m2
 
 ## How to override the core module by Your Custom Code (2 Step out of 3):
 
-### Create a module:
+### Create a module (see [docs/module.zip](docs/module.zip)):
 
 #### Vendor/Diagnostics/registration.php
 

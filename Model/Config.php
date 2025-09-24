@@ -109,15 +109,17 @@ class Config
 
     public function getStagingDomains(): ?array
     {
-        $serializedStagingDomains =
-            $this->scopeConfig->getValue(self::PATH_SSLCERTIFICATES_CHECK_STAGING_DOMAINS) ?? '{}';
+        $serializedStagingDomains = Data::getSerializedArrayOrEmpty(
+            $this->scopeConfig->getValue(self::PATH_SSLCERTIFICATES_CHECK_STAGING_DOMAINS)
+        );
         return Data::prefixStringArray($this->jsonSerializer->unserialize($serializedStagingDomains), 'staging.');
     }
 
     public function getWwwDomains(): ?array
     {
-        $serializedWwwDomains =
-            $this->scopeConfig->getValue(self::PATH_SSLCERTIFICATES_CHECK_WWW_DOMAINS) ?? '{}';
+        $serializedWwwDomains = Data::getSerializedArrayOrEmpty(
+            $this->scopeConfig->getValue(self::PATH_SSLCERTIFICATES_CHECK_WWW_DOMAINS)
+        );
         return Data::prefixStringArray($this->jsonSerializer->unserialize($serializedWwwDomains));
     }
 
