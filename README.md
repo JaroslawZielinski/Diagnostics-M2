@@ -611,7 +611,7 @@ See an example of usage:
 ```less
 @import 'JaroslawZielinski_Diagnostics::css/rwd/_mobileFirst.less';
 
-.box(@size, @color: red, @fontSize) {
+.box(@size: 100px, @color: red, @fontSize: 22px) {
     outline: 3px solid @color; background-color: grey;
 	width: @size; height: @size;
     line-height: @size; text-align: center;
