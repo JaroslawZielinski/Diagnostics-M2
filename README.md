@@ -557,6 +557,78 @@ class Test extends \JaroslawZielinski\Diagnostics\Block\Test
 echo "app/code/Vendor/Diagnostics/" >> .git/info/exclude
 ```
 
+## Frontend Toolkit
+
+In `view/base/web/css/rwd/_mobileFirst.less` you will find toolkit for **RWD Mobile First** approach method.
+
+Breakpoints used (can be overrided):
+* **0**
+* **480px**
+* **768px**
+* **1024px**
+* **1440px**
+* **1920px**
+
+What gives 6 ranges to use:
+
+* **0** < x < **480px** (Base/Mobile)
+* **480px** < x < **768px** (Mobile/Small screen)
+* **768px** < x < **1024px** (Small screen/tablet)
+* **1024px** < x < **1440px** (Medium screen/Desktop)
+* **1440px** < x < **1920px** (Large screen)
+* **1920px** < x < **infinity** (Extra Large screen)
+
+See an example of usage:
+
+#### Vendor/Diagnostics/view/frontend/layout/jaroslawzielinski_diagnostics_diagnose_test.xml
+
+```xml
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="empty"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Vendor_Diagnostics::css/styles.css" />
+    </head>
+
+    <body>
+        <referenceContainer name="content">
+            ...
+        </referenceContainer>
+
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Text" name="my-test" as="my-test">
+                <arguments>
+                    <argument name="text" xsi:type="string"><![CDATA[<div id="my-test" class="my-test">&nbsp;</div>]]></argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
+```
+
+#### Vendor/Diagnostics/view/frontend/web/css/styles.less
+
+```less
+@import 'rwd/_mobileFirst';
+
+.box(@width, @height) {
+  width: @width;
+  height: @height;
+}
+
+div.my-test {
+  .mobile-first(
+    @base: { /* TODO: less style element for Base/Mobile */ .box(100px, 100px); },
+    @xs: { /* TODO: less style element for Mobile/Small screen */ .box(200px, 200px); },
+    @s: { /* TODO: less style element for Small screen/tablet */ .box(300px, 300px); },
+    @m: { /* TODO: less style element for Medium screen/Desktop */ .box(400px, 400px); },
+    @l: { /* TODO: less style element for Large screen */ .box(500px, 500px); },
+    @xl: { /* TODO: less style element for Extra Large screen */ .box(600px, 600px); }
+  );
+}
+
+```
+
 Modify Your Vendor/Diagnostics module, add Your code there, use X Debug and...
 
 ## ...Enjoy Your coding!
