@@ -1,0 +1,58 @@
+// Breakpoints
+// Base/Mobile
+@screen__xs: 480px;
+// Small screen/tablet
+@screen__s: 768px;
+// Medium screen/Desktop
+@screen__m: 1024px;
+// Large screen
+@screen__l: 1440px;
+// Extra Large screen
+@screen__xl: 1920px;
+// @see https://code.mu/en/markup/book/prep/less/mediaqueries/
+.media-query-min-width(@rules, @break) {
+    & when (@break = 0) and (isruleset(@rules)) {
+        @media only screen and (min-width: 0) {
+            --breakpoint-setting: ~"Base/Mobile @{break} <= x < @{screen__xs}";
+            @rules();
+        }
+    }
+    & when (@break = @screen__xs) and (isruleset(@rules)) {
+        @media only screen and (min-width: @screen__xs) {
+            --breakpoint-setting: ~"Mobile/Small screen @{break} <= x < @{screen__s}";
+            @rules();
+        }
+    }
+    & when (@break = @screen__s) and (isruleset(@rules)) {
+        @media only screen and (min-width: @screen__s) {
+            --breakpoint-setting: ~"Small screen/tablet @{break} <= x < @{screen__m}";
+            @rules();
+        }
+    }
+    & when (@break = @screen__m) and (isruleset(@rules)) {
+        @media only screen and (min-width: @screen__m) {
+            --breakpoint-setting: ~"Medium screen/Desktop @{break} <= x < @{screen__l}";
+            @rules();
+        }
+    }
+    & when (@break = @screen__l) and (isruleset(@rules)) {
+        @media only screen and (min-width: @screen__l) {
+            --breakpoint-setting: ~"Large screen @{break} <= x < @{screen__xl}";
+            @rules();
+        }
+    }
+    & when (@break = @screen__xl) and (isruleset(@rules)) {
+        @media only screen and (min-width: @screen__xl) {
+            --breakpoint-setting: ~"Extra Large screen @{break} <= x < infinity";
+            @rules();
+        }
+    }
+}
+.mobile-first(@base, @xs: '', @s: '', @m: '', @l: '', @xl: '') {
+    .media-query-min-width(@base, 0);
+    .media-query-min-width(@xs, @screen__xs);
+    .media-query-min-width(@s, @screen__s);
+    .media-query-min-width(@m, @screen__m);
+    .media-query-min-width(@l, @screen__l);
+    .media-query-min-width(@xl, @screen__xl);
+}
