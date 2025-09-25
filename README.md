@@ -609,22 +609,34 @@ See an example of usage:
 #### Vendor/Diagnostics/view/frontend/web/css/styles.less
 
 ```less
-@import 'rwd/_mobileFirst';
+@import 'JaroslawZielinski_Diagnostics::css/rwd/_mobileFirst.less';
 
-.box(@width, @height) {
-  width: @width;
-  height: @height;
+.box(@size, @color: red, @fontSize) {
+    outline: 3px solid @color; background-color: grey;
+	width: @size; height: @size;
+    line-height: @size; text-align: center;
+    &:before {
+        display: inline-block; vertical-align: middle; line-height: normal;
+        font-size: @fontSize; color: black;
+        content: ~'"Box size: @{size} x @{size}"'
+    }
 }
 
 div.my-test {
-  .mobile-first(
-    @base: { /* TODO: less style element for Base/Mobile */ .box(100px, 100px); },
-    @xs: { /* TODO: less style element for Mobile/Small screen */ .box(200px, 200px); },
-    @s: { /* TODO: less style element for Small screen/tablet */ .box(300px, 300px); },
-    @m: { /* TODO: less style element for Medium screen/Desktop */ .box(400px, 400px); },
-    @l: { /* TODO: less style element for Large screen */ .box(500px, 500px); },
-    @xl: { /* TODO: less style element for Extra Large screen */ .box(600px, 600px); }
-  );
+    .mobile-first(
+        // TODO: less style element for Base/Mobile
+        @base: { .box(100px, red, 4px); },
+        // TODO: less style element for Mobile/Small screen
+        @xs: {  .box(200px, blue, 11px); },
+        // TODO: less style element for Small screen/tablet
+        @s: { .box(300px, yellow, 18px); },
+        // TODO: less style element for Medium screen/Desktop
+        @m: { .box(400px, magenta, 22px); },
+        // TODO: less style element for Large screen
+        @l: { .box(500px, orange, 26px); },
+        // TODO: less style element for Extra Large screen
+        @xl: { .box(600px, cyan, 30px); }
+    );
 }
 
 ```
