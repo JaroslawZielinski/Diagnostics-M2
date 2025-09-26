@@ -611,26 +611,35 @@ See an example of usage:
 ```less
 @import 'JaroslawZielinski_Diagnostics::css/rwd/_mobileFirst.less';
 
+//.mobile-first(
+//    @base: { /** TODO: Base/Mobile 0 <= x < 480px */ },
+//    @xs: {  /** TODO: Mobile/Small screen 480px <= x < 768px */ },
+//    @s: { /** TODO: Small screen/tablet 768px <= x < 1024px */ },
+//    @m: { /** TODO: Medium screen/Desktop 1024px <= x < 1440px */ },
+//    @l: { /** TODO: Large screen 1440px <= x < 1920px */ },
+//    @xl: { /** TODO: Extra Large screen 1920px <= x < infinity */ }
+//);
+
 .box(@size, @color: red, @fontSize) {
-  outline: 3px solid @color; background-color: grey;
-  width: @size; height: @size;
-  line-height: @size; text-align: center;
-  &:before {
-    display: inline-block; vertical-align: middle; line-height: normal;
-    font-size: @fontSize; color: black;
-    content: ~'"Box size: @{size} x @{size}"'
-  }
+    outline: 3px solid @color; background-color: grey;
+	width: @size; height: @size;
+    line-height: @size; text-align: center;
+    &:before {
+        display: inline-block; vertical-align: middle; line-height: normal;
+        font-size: @fontSize; color: black;
+        content: ~'"Box size: @{size} x @{size}"'
+    }
 }
 
 div.my-test {
-  .mobile-first(
-    @base: { .box(100px, red, 4px); },
-    @xs: {  .box(200px, blue, 11px); },
-    @s: { .box(300px, yellow, 18px); },
-    @m: { .box(400px, magenta, 22px); },
-    @l: { .box(500px, orange, 26px); },
-    @xl: { .box(600px, cyan, 30px); }
-  );
+    .mobile-first(
+        @base: { .box(100px, red, 4px); },
+        @xs: {  .box(200px, blue, 11px); },
+        @s: { .box(300px, yellow, 18px); },
+        @m: { .box(400px, magenta, 22px); },
+        @l: { .box(500px, orange, 26px); },
+        @xl: { .box(600px, cyan, 30px); }
+    );
 }
 
 ```
