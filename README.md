@@ -611,32 +611,26 @@ See an example of usage:
 ```less
 @import 'JaroslawZielinski_Diagnostics::css/rwd/_mobileFirst.less';
 
-.box(@size: 100px, @color: red, @fontSize: 22px) {
-    outline: 3px solid @color; background-color: grey;
-	width: @size; height: @size;
-    line-height: @size; text-align: center;
-    &:before {
-        display: inline-block; vertical-align: middle; line-height: normal;
-        font-size: @fontSize; color: black;
-        content: ~'"Box size: @{size} x @{size}"'
-    }
+.box(@size, @color: red, @fontSize) {
+  outline: 3px solid @color; background-color: grey;
+  width: @size; height: @size;
+  line-height: @size; text-align: center;
+  &:before {
+    display: inline-block; vertical-align: middle; line-height: normal;
+    font-size: @fontSize; color: black;
+    content: ~'"Box size: @{size} x @{size}"'
+  }
 }
 
 div.my-test {
-    .mobile-first(
-        // TODO: less style element for Base/Mobile
-        @base: { .box(100px, red, 4px); },
-        // TODO: less style element for Mobile/Small screen
-        @xs: {  .box(200px, blue, 11px); },
-        // TODO: less style element for Small screen/tablet
-        @s: { .box(300px, yellow, 18px); },
-        // TODO: less style element for Medium screen/Desktop
-        @m: { .box(400px, magenta, 22px); },
-        // TODO: less style element for Large screen
-        @l: { .box(500px, orange, 26px); },
-        // TODO: less style element for Extra Large screen
-        @xl: { .box(600px, cyan, 30px); }
-    );
+  .mobile-first(
+    @base: { .box(100px, red, 4px); },
+    @xs: {  .box(200px, blue, 11px); },
+    @s: { .box(300px, yellow, 18px); },
+    @m: { .box(400px, magenta, 22px); },
+    @l: { .box(500px, orange, 26px); },
+    @xl: { .box(600px, cyan, 30px); }
+  );
 }
 
 ```

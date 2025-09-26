@@ -10,49 +10,49 @@
 // Extra Large screen:
 @screen__xl: 1920px;
 // @see https://code.mu/en/markup/book/prep/less/mediaqueries/
-.media-query-min-width(@rules, @break) {
-    & when (@break = 0) and (isruleset(@rules)) {
-        @media only screen and (min-width: 0) {
-            --breakpoint-range: ~'"Base/Mobile @{break} <= x < @{screen__xs}"';
-            @rules();
-        }
+.mq-minw(@rules, @break) {
+  & when (@break = 0) and not (isstring(@rules)) {
+    @media only screen and (min-width: 0) {
+      --mq-range-comment: ~'"Base/Mobile @{break} <= x < @{screen__xs}"';
+      @rules();
     }
-    & when (@break = @screen__xs) and (isruleset(@rules)) {
-        @media only screen and (min-width: @screen__xs) {
-            --breakpoint-range: ~'"Mobile/Small screen @{break} <= x < @{screen__s}"';
-            @rules();
-        }
+  }
+  & when (@break = @screen__xs) and not (isstring(@rules)) {
+    @media only screen and (min-width: @screen__xs) {
+      --mq-range-comment: ~'"Mobile/Small screen @{break} <= x < @{screen__s}"';
+      @rules();
     }
-    & when (@break = @screen__s) and (isruleset(@rules)) {
-        @media only screen and (min-width: @screen__s) {
-            --breakpoint-range: ~'"Small screen/tablet @{break} <= x < @{screen__m}"';
-            @rules();
-        }
+  }
+  & when (@break = @screen__s) and not (isstring(@rules)) {
+    @media only screen and (min-width: @screen__s) {
+      --mq-range-comment: ~'"Small screen/tablet @{break} <= x < @{screen__m}"';
+      @rules();
     }
-    & when (@break = @screen__m) and (isruleset(@rules)) {
-        @media only screen and (min-width: @screen__m) {
-            --breakpoint-range: ~'"Medium screen/Desktop @{break} <= x < @{screen__l}"';
-            @rules();
-        }
+  }
+  & when (@break = @screen__m) and not (isstring(@rules)) {
+    @media only screen and (min-width: @screen__m) {
+      --mq-range-comment: ~'"Medium screen/Desktop @{break} <= x < @{screen__l}"';
+      @rules();
     }
-    & when (@break = @screen__l) and (isruleset(@rules)) {
-        @media only screen and (min-width: @screen__l) {
-            --breakpoint-range: ~'"Large screen @{break} <= x < @{screen__xl}"';
-            @rules();
-        }
+  }
+  & when (@break = @screen__l) and not (isstring(@rules)) {
+    @media only screen and (min-width: @screen__l) {
+      --mq-range-comment: ~'"Large screen @{break} <= x < @{screen__xl}"';
+      @rules();
     }
-    & when (@break = @screen__xl) and (isruleset(@rules)) {
-        @media only screen and (min-width: @screen__xl) {
-            --breakpoint-range: ~'"Extra Large screen @{break} <= x < infinity"';
-            @rules();
-        }
+  }
+  & when (@break = @screen__xl) and not (isstring(@rules)) {
+    @media only screen and (min-width: @screen__xl) {
+      --mq-range-comment: ~'"Extra Large screen @{break} <= x < infinity"';
+      @rules();
     }
+  }
 }
 .mobile-first(@base, @xs: '', @s: '', @m: '', @l: '', @xl: '') {
-    .media-query-min-width(@base, 0);
-    .media-query-min-width(@xs, @screen__xs);
-    .media-query-min-width(@s, @screen__s);
-    .media-query-min-width(@m, @screen__m);
-    .media-query-min-width(@l, @screen__l);
-    .media-query-min-width(@xl, @screen__xl);
+  .mq-minw(@base, 0);
+  .mq-minw(@xs, @screen__xs);
+  .mq-minw(@s, @screen__s);
+  .mq-minw(@m, @screen__m);
+  .mq-minw(@l, @screen__l);
+  .mq-minw(@xl, @screen__xl);
 }
