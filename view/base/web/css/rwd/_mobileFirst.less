@@ -41,8 +41,8 @@
     }
     & when (@break = @screen__xl) and not (isstring(@rules)) {
         @media only screen and (min-width: @screen__xl) {
-        --mq-range-comment: ~'"Extra Large screen @{break} <= x < infinity"';
-        @rules();
+            --mq-range-comment: ~'"Extra Large screen @{break} <= x < infinity"';
+            @rules();
         }
     }
 }
