@@ -11,49 +11,47 @@
 @screen__xl: 1920px;
 // @see https://code.mu/en/markup/book/prep/less/mediaqueries/
 .mq-minw(@rules, @break) {
-  & when (@break = 0) and not (isstring(@rules)) {
-    @media only screen and (min-width: 0) {
-      --mq-range-comment: ~'"Base/Mobile @{break} <= x < @{screen__xs}"';
-      @rules();
+    & when (@break = 0) and not (isstring(@rules)) {
+        --mq-range-comment: ~'"Base/Mobile @{break} <= x < @{screen__xs}"';
+        @rules();
     }
-  }
-  & when (@break = @screen__xs) and not (isstring(@rules)) {
-    @media only screen and (min-width: @screen__xs) {
-      --mq-range-comment: ~'"Mobile/Small screen @{break} <= x < @{screen__s}"';
-      @rules();
+    & when (@break = @screen__xs) and not (isstring(@rules)) {
+        @media only screen and (min-width: @screen__xs) {
+            --mq-range-comment: ~'"Mobile/Small screen @{break} <= x < @{screen__s}"';
+            @rules();
+        }
     }
-  }
-  & when (@break = @screen__s) and not (isstring(@rules)) {
-    @media only screen and (min-width: @screen__s) {
-      --mq-range-comment: ~'"Small screen/tablet @{break} <= x < @{screen__m}"';
-      @rules();
+    & when (@break = @screen__s) and not (isstring(@rules)) {
+        @media only screen and (min-width: @screen__s) {
+            --mq-range-comment: ~'"Small screen/tablet @{break} <= x < @{screen__m}"';
+            @rules();
+        }
     }
-  }
-  & when (@break = @screen__m) and not (isstring(@rules)) {
-    @media only screen and (min-width: @screen__m) {
-      --mq-range-comment: ~'"Medium screen/Desktop @{break} <= x < @{screen__l}"';
-      @rules();
+    & when (@break = @screen__m) and not (isstring(@rules)) {
+        @media only screen and (min-width: @screen__m) {
+            --mq-range-comment: ~'"Medium screen/Desktop @{break} <= x < @{screen__l}"';
+            @rules();
+        }
     }
-  }
-  & when (@break = @screen__l) and not (isstring(@rules)) {
-    @media only screen and (min-width: @screen__l) {
-      --mq-range-comment: ~'"Large screen @{break} <= x < @{screen__xl}"';
-      @rules();
+    & when (@break = @screen__l) and not (isstring(@rules)) {
+        @media only screen and (min-width: @screen__l) {
+            --mq-range-comment: ~'"Large screen @{break} <= x < @{screen__xl}"';
+            @rules();
+        }
     }
-  }
-  & when (@break = @screen__xl) and not (isstring(@rules)) {
-    @media only screen and (min-width: @screen__xl) {
-      --mq-range-comment: ~'"Extra Large screen @{break} <= x < infinity"';
-      @rules();
+    & when (@break = @screen__xl) and not (isstring(@rules)) {
+        @media only screen and (min-width: @screen__xl) {
+        --mq-range-comment: ~'"Extra Large screen @{break} <= x < infinity"';
+        @rules();
+        }
     }
-  }
 }
 .mobile-first(@base, @xs: '', @s: '', @m: '', @l: '', @xl: '') {
-  /** Responsive Web Design - Mobile First Approach **/
-  .mq-minw(@base, 0);
-  .mq-minw(@xs, @screen__xs);
-  .mq-minw(@s, @screen__s);
-  .mq-minw(@m, @screen__m);
-  .mq-minw(@l, @screen__l);
-  .mq-minw(@xl, @screen__xl);
+    /** Responsive Web Design - Mobile First Approach **/
+    .mq-minw(@base, 0);
+    .mq-minw(@xs, @screen__xs);
+    .mq-minw(@s, @screen__s);
+    .mq-minw(@m, @screen__m);
+    .mq-minw(@l, @screen__l);
+    .mq-minw(@xl, @screen__xl);
 }
