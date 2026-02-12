@@ -3,5 +3,7 @@
     xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
         <css src="jquery/colorpicker/css/colorpicker.css"/>
+
+        <css src="JaroslawZielinski_Diagnostics::css/draggable.css"/>
     </head>
 </page>

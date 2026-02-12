@@ -1,0 +1,16 @@
+.ms-draggable-helper {
+    float: left;
+    cursor: move;
+    &::before {
+        font-size: 1.8rem;
+        color: #9e9e9e;
+        content: '\e617';
+        font-family: 'Admin Icons';
+        vertical-align: middle;
+        margin: 0 5px 0 -4px;
+        cursor: move;
+    }
+    & + input, & + select, & + textarea {
+        width: 87% !important;
+    }
+}
